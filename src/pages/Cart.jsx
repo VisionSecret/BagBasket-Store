@@ -16,11 +16,15 @@ const Cart = () => {
     }, 1000);
   };
   const handleCheckout = () => {
-    setLoading(true);
-    setTimeout(() => {
-      navigate("/checkout");
-      setLoading(false);
-    }, 1300);
+    if(items.length > 0){
+      setLoading(true);
+      setTimeout(() => {
+        navigate("/checkout");
+        setLoading(false);
+      }, 1300);
+    }else{
+      alert("No Items found..")
+    }
   };
 
   if (loading) {
